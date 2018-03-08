@@ -1,6 +1,4 @@
 # Bamazon
-Welcome to Bamazon!
-
 <img src="assets/images/welcome.png">
 
 This application currently allows two separate functionalities:
@@ -12,11 +10,11 @@ Choose a user and run that Javascript file in node.js. You'll be prompted with a
 
 Here is an example of our customer view:
 
-![customerview](assets/images/customerview.gif)
+![customerview](assets/images/bcustomer.gif)
 
 Here is an example of our manager view:
 
-![managerview](assets/images/managerview.gif)
+![managerview](assets/images/bmanager.gif)
 
 # About this project
 This project was built using Javascript and node.js for user interaction and mySQL for database infrastructure. Please see the source code for more information.

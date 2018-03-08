@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    console.log("-------------------\nWelcome to Bamazon!\n-------------------");
+    console.log("\n-------------------\nWelcome to Bamazon!\n-------------------\n");
     displayInventory();
 });
 
@@ -33,14 +33,15 @@ var displayInventory = function() {
                 [result[i].item_id, result[i].product_name, "$" + result[i].price]
             )
         }
-        console.log(table.toString());
-        askCustomer();
+        console.log(table.toString() +"\n");
+        welcome();
     });
 
 }
 
 var askCustomer = function() {
-    inquirer.prompt([{
+    inquirer.prompt([
+    {
         name: "id",
         type: "input",
         message: "What product would you like to buy (ID#)?"
@@ -55,12 +56,31 @@ var askCustomer = function() {
             var remaining = result[answer.id - 1].stock_quantity - answer.quantity;
             if (remaining >= 0) {
                 var query = connection.query('UPDATE products SET stock_quantity=' + remaining + ' where item_id=' + answer.id)
-                console.log("Success! Your total is $" + result[answer.id - 1].price * answer.quantity);
+                console.log("\n\nSuccess! Your total is $" + result[answer.id - 1].price * answer.quantity +"\n\n");
+                displayInventory();
             }
             else {
-                console.log("INSUFFICIENT QUANTITY! Please check back later.");
+                console.log("\n\nINSUFFICIENT QUANTITY! Please check back later.\n\n");
+                displayInventory();
             }
-            connection.end();
-            })
         })
-    };
+    })
+};
+
+var welcome = function() {
+    inquirer.prompt({
+        name: "welcome",
+        type: "list",
+        message: "What would you like to do?",
+        choices: ["Shop", "Quit"]
+    }).then(function(ans) {
+        if(ans.welcome === "Quit") {
+            console.log("\nThanks for shopping with us!\n")
+            return;
+        }
+        askCustomer();
+        
+    })
+};
+            
+        
