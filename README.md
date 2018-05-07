@@ -16,11 +16,10 @@ Here is an example of our manager view:
 
 ![managerview](assets/images/bmanager.gif)
 
+The supervisor view allows users to see a breakdown of each department in the store, their overhead costs, product sales and total profit from each category. 
+
 # About this project
 This project was built using Javascript and node.js for user interaction and mySQL for database infrastructure. Please see the source code for more information.
-
-# Upcoming patches
-In order to expand this project, we will be adding a Supervisor View in the near future. This functionality will allow users to see a breakdown of each department in the store, their overhead costs, product sales and total profit from each category. 
 
 # Collaborators
 Jeremy Stepanovich
